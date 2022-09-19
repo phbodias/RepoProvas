@@ -48,7 +48,7 @@ POST /signin
 ```
 
 ```yml
-POST /test (autenticada)
+POST /test (authenticated)
     - Route to insert a new test
     - headers: { "Authorization": "Bearer $token" }
     - body: {
@@ -61,21 +61,21 @@ POST /test (autenticada)
 ```
 
 ```yml
-GET /testByDiscs (autenticada)
+GET /testByDiscs (authenticated)
     - Route to get tests separated by disciplines
     - headers: { "Authorization": "Bearer $token" }
     - body: {}
 ```
 
 ```yml
-GET /testByTeacher (autenticada)
+GET /testByTeacher (authenticated)
     - Route to get tests separated by teachers
     - headers: { "Authorization": "Bearer $token" }
     - body: {}
 ```
 
 ```yml
-PUT /usuarios/:id (autenticada)
+PUT /usuarios/:id (authenticated)
     - Rota para atualizar um usuário pelo id
     - headers: { "Authorization": "Bearer $token" }
     - body: {
