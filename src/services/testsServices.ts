@@ -23,7 +23,7 @@ export async function insert(testBody: ITestBody) {
     await teachersDisciplinesRepository.findByIds(teacherId, disciplineId);
   if (!teacherDiscipline) {
     throw {
-      status: "Conflict",
+      code: "Conflict",
       message: "This teacher does not give this discipline",
     };
   }

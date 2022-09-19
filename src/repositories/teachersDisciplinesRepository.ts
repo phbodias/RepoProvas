@@ -7,6 +7,5 @@ export async function findByIds(teacherId: number, disciplineId: number) {
       AND: [{ teacherId }, { disciplineId }],
     },
   });
-  console.log(result)
   return result as ITeacherDisciplineData;
 }

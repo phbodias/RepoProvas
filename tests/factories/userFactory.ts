@@ -8,10 +8,3 @@ export async function userFactory () {
         confirmPassword:password
     }
 }
-
-export async function userLoginFactory () {
-    return {
-        email:faker.internet.email(),
-        password: faker.internet.password(),
-    }
-}
