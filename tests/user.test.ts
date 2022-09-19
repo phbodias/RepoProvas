@@ -26,7 +26,7 @@ describe("Testing POST /signup", () => {
     expect(result.status).toBe(409);
   });
 
-  it("Tries to insert user without email and receives status 422", async () => {
+  it("Tries to insert user without a valid email and receives status 422", async () => {
     const body = {
       email: "agoogle.com",
       password: "aaaaaaaaaaaaaa",
@@ -39,7 +39,7 @@ describe("Testing POST /signup", () => {
 
   it("Tries to insert user without password and receives status 422", async () => {
     const body = {
-      email: "agoogle.com",
+      email: "a@gmail.com",
       password: "",
       confirmPassword: "",
     };
@@ -50,7 +50,7 @@ describe("Testing POST /signup", () => {
 
   it("Tries to insert user with confirmPassword different than password and receives status 422", async () => {
     const body = {
-      email: "agoogle.com",
+      email: "a@gmail.com",
       password: "aaaaaaaaaaaaaa",
       confirmPassword: "bbbbbbbbbbbb",
     };
