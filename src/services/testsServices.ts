@@ -1,3 +1,4 @@
+import { Terms } from "@prisma/client";
 import { ITestBody } from "../types/testTypes";
 import * as categoryRepository from "../repositories/categoryRepository";
 import * as disciplinesRepository from "../repositories/disciplinesRepository";
@@ -35,4 +36,10 @@ export async function insert(testBody: ITestBody) {
     teacherDisciplineId,
   };
   return await testRepository.insert(testData);
+}
+
+export async function getTestsByDiscipline() {
+  const tests : Terms[] = await testRepository.getTestsForDisciplines();
+
+  return tests;
 }
