@@ -76,3 +76,31 @@ describe("Testing POST /test", () => {
     expect(result.status).toBe(401);
   });
 });
+
+describe("Testing GET /testByDiscs", () => {
+  it("Getting tests by disciplines and return status code 200 and a array with tests", async () => {
+    const token = await createValidToken();
+    const newTest = await testFactory();
+    await supertest(app)
+      .post("/test")
+      .send(newTest)
+      .set("Authorization", `Bearer ${token}`);
+    const result = await supertest(app)
+      .get("/testByDiscs")
+      .set("Authorization", `Bearer ${token}`);
+    expect(result.status).toBe(200);
+  });
+
+  it("Try get tests by disciplines without a valid token and return status code 401", async () => {
+    const token = await createValidToken();
+    const newTest = await testFactory();
+    await supertest(app)
+      .post("/test")
+      .send(newTest)
+      .set("Authorization", `Bearer ${token}`);
+    const result = await supertest(app)
+      .get("/testByDiscs")
+      .set("Authorization", `Bearer ${token}aaaa`);
+    expect(result.status).toBe(401);
+  });
+});

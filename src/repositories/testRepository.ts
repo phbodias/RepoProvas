@@ -53,3 +53,29 @@ export async function getTestsForDisciplines(): Promise<Terms[]> {
     },
   });
 }
+
+export async function getTestsForTeachers() {
+  return prisma.teachers.findMany({
+    include: {
+      teachersDisciplines: {
+        orderBy: { disciplineId: "asc" },
+        include: {
+          disciplines: {
+            include: {
+              terms: {
+                select: {
+                  number: true,
+                },
+              },
+            },
+          },
+          tests: {
+            select: {
+              pdfUrl: true,
+            },
+          },
+        },
+      },
+    },
+  });
+}

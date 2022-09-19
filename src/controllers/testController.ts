@@ -13,3 +13,9 @@ export async function getTestsByDiscsController(req: Request, res: Response) {
   const tests: Terms[] = await testServices.getTestsByDiscipline();
   return res.status(200).send(tests);
 }
+
+export async function getTestsByTeacherController(req: Request, res: Response) {
+  const tests = await testServices.getTestsByTeacher();
+
+  return res.status(200).send(tests);
+}

@@ -6,6 +6,5 @@ export async function createValidToken() {
   const token: string = jwt.sign({ id }, secret, {
     expiresIn: "1h",
   });
-  console.log(token)
   return token;
 }
